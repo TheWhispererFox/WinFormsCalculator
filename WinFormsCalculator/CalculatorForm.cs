@@ -1,8 +1,8 @@
 namespace WinFormsCalculator
 {
-    public partial class Form1 : Form
+    public partial class CalculatorMainForm : Form
     {
-        public Form1()
+        public CalculatorMainForm()
         {
             InitializeComponent();
         }
