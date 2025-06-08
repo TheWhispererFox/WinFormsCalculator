@@ -20,7 +20,7 @@ namespace MathParser.Tests
         [InlineData("sqrt(4 + 5)", 3)]
         [InlineData("sqrt(16) + sqrt(9)", 7)]
         [InlineData("2 * sqrt(9 + 7)", 8)]             // 2 * sqrt(16) = 2 * 4 = 8
-        public void Evaluate_ValidExpressions_ReturnsExpectedResult(string expression, double expected)
+        public void ParserCalculatesValidExpressions(string expression, double expected)
         {
             var result = _sut.Evaluate(expression);
             Assert.Equal(expected, result, precision: 6);
@@ -33,9 +33,15 @@ namespace MathParser.Tests
         [InlineData("sqrt(4 + )")]
         [InlineData("")]
         [InlineData("10 +")]
-        public void Evaluate_InvalidExpressions_ThrowsException(string expression)
+        public void ParserRejectsIncorrectExpressions(string expression)
         {
             Assert.Throws<Exception>(() => _sut.Evaluate(expression));
+        }
+
+        [Fact]
+        public void ParserRejectsDivisionByZero()
+        {
+            Assert.Throws<DivideByZeroException>(() => _sut.Evaluate("5/0"));
         }
     }
 }
