@@ -42,5 +42,35 @@ namespace WinFormsCalculator
         {
             CalculatorDisplayField.Text = "0";
         }
+
+        private void IncreaseFontSizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            float newSize = Math.Min(40f, CalculatorDisplayField.Font.Size + 1);
+            CalculatorDisplayField.Font = new Font(CalculatorDisplayField.Font.FontFamily, newSize);
+        }
+
+        private void DecreaseFontSizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            float newSize = Math.Max(6f, CalculatorDisplayField.Font.Size - 1);
+            CalculatorDisplayField.Font = new Font(CalculatorDisplayField.Font.FontFamily, newSize);
+        }
+
+        private void SaveResultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            File.WriteAllText("result.txt", CalculatorDisplayField.Text);
+            MessageBox.Show("Results were saved");
+        }
+
+        private void LoadResultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (File.Exists("result.txt"))
+            {
+                CalculatorDisplayField.Text = File.ReadAllText("result.txt");
+            }
+            else
+            {
+                MessageBox.Show("There is no saved result to load from");
+            }
+        }
     }
 }

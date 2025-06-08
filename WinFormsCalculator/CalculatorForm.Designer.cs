@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculatorMainForm));
+            MainTableLayout = new TableLayoutPanel();
             KeyboardPanel = new TableLayoutPanel();
             BtnClear = new Button();
             BtnCloseParenthesis = new Button();
@@ -51,25 +52,35 @@
             BtnEight = new Button();
             BtnSeven = new Button();
             CalculatorDisplayField = new TextBox();
-            tableLayoutPanel1.SuspendLayout();
+            toolStrip1 = new ToolStrip();
+            ChangeFontSizeBtn = new ToolStripDropDownButton();
+            IncreaseFontSizeToolStripMenuItem = new ToolStripMenuItem();
+            DecreaseFontSizeToolStripMenuItem = new ToolStripMenuItem();
+            ImportExportBtn = new ToolStripDropDownButton();
+            SaveResultToolStripMenuItem = new ToolStripMenuItem();
+            LoadResultToolStripMenuItem = new ToolStripMenuItem();
+            MainTableLayout.SuspendLayout();
             KeyboardPanel.SuspendLayout();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // MainTableLayout
             // 
-            tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(KeyboardPanel, 0, 1);
-            tableLayoutPanel1.Controls.Add(CalculatorDisplayField, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(239, 314);
-            tableLayoutPanel1.TabIndex = 2;
+            MainTableLayout.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            MainTableLayout.ColumnCount = 1;
+            MainTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            MainTableLayout.Controls.Add(KeyboardPanel, 0, 2);
+            MainTableLayout.Controls.Add(CalculatorDisplayField, 0, 1);
+            MainTableLayout.Controls.Add(toolStrip1, 0, 0);
+            MainTableLayout.Dock = DockStyle.Fill;
+            MainTableLayout.Location = new Point(0, 0);
+            MainTableLayout.Name = "MainTableLayout";
+            MainTableLayout.RowCount = 3;
+            MainTableLayout.RowStyles.Add(new RowStyle());
+            MainTableLayout.RowStyles.Add(new RowStyle());
+            MainTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            MainTableLayout.Size = new Size(239, 339);
+            MainTableLayout.TabIndex = 2;
             // 
             // KeyboardPanel
             // 
@@ -100,7 +111,7 @@
             KeyboardPanel.Controls.Add(BtnEight, 1, 1);
             KeyboardPanel.Controls.Add(BtnSeven, 0, 1);
             KeyboardPanel.Dock = DockStyle.Fill;
-            KeyboardPanel.Location = new Point(3, 80);
+            KeyboardPanel.Location = new Point(3, 105);
             KeyboardPanel.Name = "KeyboardPanel";
             KeyboardPanel.RowCount = 5;
             KeyboardPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
@@ -396,30 +407,93 @@
             CalculatorDisplayField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CalculatorDisplayField.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
             CalculatorDisplayField.ForeColor = SystemColors.WindowText;
-            CalculatorDisplayField.Location = new Point(3, 3);
+            CalculatorDisplayField.Location = new Point(3, 28);
             CalculatorDisplayField.Name = "CalculatorDisplayField";
             CalculatorDisplayField.PlaceholderText = "0";
             CalculatorDisplayField.Size = new Size(233, 71);
             CalculatorDisplayField.TabIndex = 0;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Items.AddRange(new ToolStripItem[] { ChangeFontSizeBtn, ImportExportBtn });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(239, 25);
+            toolStrip1.TabIndex = 2;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // ChangeFontSizeBtn
+            // 
+            ChangeFontSizeBtn.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            ChangeFontSizeBtn.DropDownItems.AddRange(new ToolStripItem[] { IncreaseFontSizeToolStripMenuItem, DecreaseFontSizeToolStripMenuItem });
+            ChangeFontSizeBtn.Image = (Image)resources.GetObject("ChangeFontSizeBtn.Image");
+            ChangeFontSizeBtn.ImageTransparentColor = Color.Magenta;
+            ChangeFontSizeBtn.Name = "ChangeFontSizeBtn";
+            ChangeFontSizeBtn.Size = new Size(29, 22);
+            ChangeFontSizeBtn.Text = "toolStripDropDownButton1";
+            // 
+            // IncreaseFontSizeToolStripMenuItem
+            // 
+            IncreaseFontSizeToolStripMenuItem.Name = "IncreaseFontSizeToolStripMenuItem";
+            IncreaseFontSizeToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Oemplus;
+            IncreaseFontSizeToolStripMenuItem.Size = new Size(272, 22);
+            IncreaseFontSizeToolStripMenuItem.Text = "Increase Font Size +";
+            IncreaseFontSizeToolStripMenuItem.Click += IncreaseFontSizeToolStripMenuItem_Click;
+            // 
+            // DecreaseFontSizeToolStripMenuItem
+            // 
+            DecreaseFontSizeToolStripMenuItem.Name = "DecreaseFontSizeToolStripMenuItem";
+            DecreaseFontSizeToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.OemMinus;
+            DecreaseFontSizeToolStripMenuItem.Size = new Size(272, 22);
+            DecreaseFontSizeToolStripMenuItem.Text = "Decrease Font Size -";
+            DecreaseFontSizeToolStripMenuItem.Click += DecreaseFontSizeToolStripMenuItem_Click;
+            // 
+            // ImportExportBtn
+            // 
+            ImportExportBtn.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            ImportExportBtn.DropDownItems.AddRange(new ToolStripItem[] { SaveResultToolStripMenuItem, LoadResultToolStripMenuItem });
+            ImportExportBtn.Image = (Image)resources.GetObject("ImportExportBtn.Image");
+            ImportExportBtn.ImageTransparentColor = Color.Magenta;
+            ImportExportBtn.Name = "ImportExportBtn";
+            ImportExportBtn.Size = new Size(29, 22);
+            ImportExportBtn.Text = "toolStripDropDownButton2";
+            // 
+            // SaveResultToolStripMenuItem
+            // 
+            SaveResultToolStripMenuItem.Name = "SaveResultToolStripMenuItem";
+            SaveResultToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
+            SaveResultToolStripMenuItem.Size = new Size(178, 22);
+            SaveResultToolStripMenuItem.Text = "Save Result";
+            SaveResultToolStripMenuItem.Click += SaveResultToolStripMenuItem_Click;
+            // 
+            // LoadResultToolStripMenuItem
+            // 
+            LoadResultToolStripMenuItem.Name = "LoadResultToolStripMenuItem";
+            LoadResultToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
+            LoadResultToolStripMenuItem.Size = new Size(178, 22);
+            LoadResultToolStripMenuItem.Text = "Load Result";
+            LoadResultToolStripMenuItem.Click += LoadResultToolStripMenuItem_Click;
             // 
             // CalculatorMainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(239, 314);
-            Controls.Add(tableLayoutPanel1);
+            ClientSize = new Size(239, 339);
+            Controls.Add(MainTableLayout);
             Name = "CalculatorMainForm";
             Text = "Calculator";
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
+            MainTableLayout.ResumeLayout(false);
+            MainTableLayout.PerformLayout();
             KeyboardPanel.ResumeLayout(false);
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel MainTableLayout;
         private TableLayoutPanel KeyboardPanel;
         private Button BtnDelimiter;
         private Button BtnZero;
@@ -442,5 +516,12 @@
         private Button BtnCloseParenthesis;
         private Button BtnOpenParenthesis;
         private Button BtnSquareRoot;
+        private ToolStrip toolStrip1;
+        private ToolStripDropDownButton ChangeFontSizeBtn;
+        private ToolStripMenuItem IncreaseFontSizeToolStripMenuItem;
+        private ToolStripMenuItem DecreaseFontSizeToolStripMenuItem;
+        private ToolStripDropDownButton ImportExportBtn;
+        private ToolStripMenuItem SaveResultToolStripMenuItem;
+        private ToolStripMenuItem LoadResultToolStripMenuItem;
     }
 }
