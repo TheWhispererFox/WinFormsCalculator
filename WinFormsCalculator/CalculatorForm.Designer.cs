@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            CalculatorDisplayField = new TextBox();
             KeyboardPanel = new TableLayoutPanel();
-            BtnNine = new Button();
-            BtnAddition = new Button();
-            BtnSeven = new Button();
-            BtnEight = new Button();
-            BtnFour = new Button();
-            BtnFive = new Button();
-            BtnSix = new Button();
-            BtnOne = new Button();
-            BtnTwo = new Button();
-            BtnThree = new Button();
-            BtnDivision = new Button();
-            BtnMultiplication = new Button();
-            BtnSubtract = new Button();
+            BtnClear = new Button();
+            BtnCloseParenthesis = new Button();
+            BtnOpenParenthesis = new Button();
+            BtnSquareRoot = new Button();
             BtnEvaluation = new Button();
             BtnZero = new Button();
             BtnDelimiter = new Button();
-            BtnSquareRoot = new Button();
-            BtnOpenParenthesis = new Button();
-            BtnCloseParenthesis = new Button();
-            BtnClear = new Button();
+            BtnAddition = new Button();
+            BtnSubtract = new Button();
+            BtnMultiplication = new Button();
+            BtnDivision = new Button();
+            BtnThree = new Button();
+            BtnTwo = new Button();
+            BtnOne = new Button();
+            BtnFour = new Button();
+            BtnFive = new Button();
+            BtnSix = new Button();
+            BtnNine = new Button();
+            BtnEight = new Button();
+            BtnSeven = new Button();
+            CalculatorDisplayField = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             KeyboardPanel.SuspendLayout();
             SuspendLayout();
@@ -70,15 +70,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(239, 314);
             tableLayoutPanel1.TabIndex = 2;
-            // 
-            // CalculatorDisplayField
-            // 
-            CalculatorDisplayField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            CalculatorDisplayField.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            CalculatorDisplayField.Location = new Point(3, 3);
-            CalculatorDisplayField.Name = "CalculatorDisplayField";
-            CalculatorDisplayField.Size = new Size(233, 71);
-            CalculatorDisplayField.TabIndex = 0;
             // 
             // KeyboardPanel
             // 
@@ -120,161 +111,60 @@
             KeyboardPanel.Size = new Size(233, 231);
             KeyboardPanel.TabIndex = 1;
             // 
-            // BtnNine
+            // BtnClear
             // 
-            BtnNine.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnNine.Dock = DockStyle.Fill;
-            BtnNine.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnNine.Location = new Point(119, 49);
-            BtnNine.Name = "BtnNine";
-            BtnNine.Size = new Size(52, 40);
-            BtnNine.TabIndex = 2;
-            BtnNine.Text = "9";
-            BtnNine.UseVisualStyleBackColor = true;
+            BtnClear.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnClear.Dock = DockStyle.Fill;
+            BtnClear.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnClear.Location = new Point(177, 3);
+            BtnClear.Name = "BtnClear";
+            BtnClear.Size = new Size(53, 40);
+            BtnClear.TabIndex = 19;
+            BtnClear.Text = "C";
+            BtnClear.UseVisualStyleBackColor = true;
+            BtnClear.Click += BtnClear_Click;
             // 
-            // BtnAddition
+            // BtnCloseParenthesis
             // 
-            BtnAddition.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnAddition.Dock = DockStyle.Fill;
-            BtnAddition.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnAddition.Location = new Point(177, 187);
-            BtnAddition.Name = "BtnAddition";
-            BtnAddition.Size = new Size(53, 41);
-            BtnAddition.TabIndex = 12;
-            BtnAddition.Text = "+";
-            BtnAddition.UseVisualStyleBackColor = true;
+            BtnCloseParenthesis.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnCloseParenthesis.Dock = DockStyle.Fill;
+            BtnCloseParenthesis.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnCloseParenthesis.Location = new Point(119, 3);
+            BtnCloseParenthesis.Name = "BtnCloseParenthesis";
+            BtnCloseParenthesis.Size = new Size(52, 40);
+            BtnCloseParenthesis.TabIndex = 18;
+            BtnCloseParenthesis.Tag = ")";
+            BtnCloseParenthesis.Text = ")";
+            BtnCloseParenthesis.UseVisualStyleBackColor = true;
+            BtnCloseParenthesis.Click += SimpleBtn_Click;
             // 
-            // BtnSeven
+            // BtnOpenParenthesis
             // 
-            BtnSeven.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnSeven.Dock = DockStyle.Fill;
-            BtnSeven.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnSeven.Location = new Point(3, 49);
-            BtnSeven.Name = "BtnSeven";
-            BtnSeven.Size = new Size(52, 40);
-            BtnSeven.TabIndex = 0;
-            BtnSeven.Text = "7";
-            BtnSeven.UseVisualStyleBackColor = true;
+            BtnOpenParenthesis.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnOpenParenthesis.Dock = DockStyle.Fill;
+            BtnOpenParenthesis.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnOpenParenthesis.Location = new Point(61, 3);
+            BtnOpenParenthesis.Name = "BtnOpenParenthesis";
+            BtnOpenParenthesis.Size = new Size(52, 40);
+            BtnOpenParenthesis.TabIndex = 17;
+            BtnOpenParenthesis.Tag = "(";
+            BtnOpenParenthesis.Text = "(";
+            BtnOpenParenthesis.UseVisualStyleBackColor = true;
+            BtnOpenParenthesis.Click += SimpleBtn_Click;
             // 
-            // BtnEight
+            // BtnSquareRoot
             // 
-            BtnEight.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnEight.Dock = DockStyle.Fill;
-            BtnEight.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnEight.Location = new Point(61, 49);
-            BtnEight.Name = "BtnEight";
-            BtnEight.Size = new Size(52, 40);
-            BtnEight.TabIndex = 1;
-            BtnEight.Text = "8";
-            BtnEight.UseVisualStyleBackColor = true;
-            // 
-            // BtnFour
-            // 
-            BtnFour.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnFour.Dock = DockStyle.Fill;
-            BtnFour.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnFour.Location = new Point(3, 95);
-            BtnFour.Name = "BtnFour";
-            BtnFour.Size = new Size(52, 40);
-            BtnFour.TabIndex = 3;
-            BtnFour.Text = "4";
-            BtnFour.UseVisualStyleBackColor = true;
-            // 
-            // BtnFive
-            // 
-            BtnFive.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnFive.Dock = DockStyle.Fill;
-            BtnFive.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnFive.Location = new Point(61, 95);
-            BtnFive.Name = "BtnFive";
-            BtnFive.Size = new Size(52, 40);
-            BtnFive.TabIndex = 4;
-            BtnFive.Text = "5";
-            BtnFive.UseVisualStyleBackColor = true;
-            // 
-            // BtnSix
-            // 
-            BtnSix.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnSix.Dock = DockStyle.Fill;
-            BtnSix.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnSix.Location = new Point(119, 95);
-            BtnSix.Name = "BtnSix";
-            BtnSix.Size = new Size(52, 40);
-            BtnSix.TabIndex = 5;
-            BtnSix.Text = "6";
-            BtnSix.UseVisualStyleBackColor = true;
-            // 
-            // BtnOne
-            // 
-            BtnOne.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnOne.Dock = DockStyle.Fill;
-            BtnOne.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnOne.Location = new Point(3, 141);
-            BtnOne.Name = "BtnOne";
-            BtnOne.Size = new Size(52, 40);
-            BtnOne.TabIndex = 6;
-            BtnOne.Text = "1";
-            BtnOne.UseVisualStyleBackColor = true;
-            // 
-            // BtnTwo
-            // 
-            BtnTwo.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnTwo.Dock = DockStyle.Fill;
-            BtnTwo.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnTwo.Location = new Point(61, 141);
-            BtnTwo.Name = "BtnTwo";
-            BtnTwo.Size = new Size(52, 40);
-            BtnTwo.TabIndex = 7;
-            BtnTwo.Text = "2";
-            BtnTwo.UseVisualStyleBackColor = true;
-            // 
-            // BtnThree
-            // 
-            BtnThree.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnThree.Dock = DockStyle.Fill;
-            BtnThree.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnThree.Location = new Point(119, 141);
-            BtnThree.Name = "BtnThree";
-            BtnThree.Size = new Size(52, 40);
-            BtnThree.TabIndex = 8;
-            BtnThree.Text = "3";
-            BtnThree.UseVisualStyleBackColor = true;
-            // 
-            // BtnDivision
-            // 
-            BtnDivision.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnDivision.Dock = DockStyle.Fill;
-            BtnDivision.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnDivision.Location = new Point(177, 49);
-            BtnDivision.Name = "BtnDivision";
-            BtnDivision.Size = new Size(53, 40);
-            BtnDivision.TabIndex = 9;
-            BtnDivision.Text = "÷";
-            BtnDivision.UseVisualStyleBackColor = true;
-            // 
-            // BtnMultiplication
-            // 
-            BtnMultiplication.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnMultiplication.Dock = DockStyle.Fill;
-            BtnMultiplication.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnMultiplication.Location = new Point(177, 95);
-            BtnMultiplication.Name = "BtnMultiplication";
-            BtnMultiplication.Size = new Size(53, 40);
-            BtnMultiplication.TabIndex = 10;
-            BtnMultiplication.Text = "×";
-            BtnMultiplication.UseVisualStyleBackColor = true;
-            // 
-            // BtnSubtract
-            // 
-            BtnSubtract.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnSubtract.Dock = DockStyle.Fill;
-            BtnSubtract.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnSubtract.Location = new Point(177, 141);
-            BtnSubtract.Name = "BtnSubtract";
-            BtnSubtract.Size = new Size(53, 40);
-            BtnSubtract.TabIndex = 11;
-            BtnSubtract.Text = "-";
-            BtnSubtract.UseVisualStyleBackColor = true;
+            BtnSquareRoot.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnSquareRoot.Dock = DockStyle.Fill;
+            BtnSquareRoot.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnSquareRoot.Location = new Point(3, 3);
+            BtnSquareRoot.Name = "BtnSquareRoot";
+            BtnSquareRoot.Size = new Size(52, 40);
+            BtnSquareRoot.TabIndex = 16;
+            BtnSquareRoot.Tag = "sqrt";
+            BtnSquareRoot.Text = "√";
+            BtnSquareRoot.UseVisualStyleBackColor = true;
+            BtnSquareRoot.Click += SimpleBtn_Click;
             // 
             // BtnEvaluation
             // 
@@ -289,6 +179,7 @@
             BtnEvaluation.TabIndex = 13;
             BtnEvaluation.Text = "=";
             BtnEvaluation.UseVisualStyleBackColor = false;
+            BtnEvaluation.Click += BtnEvaluation_Click;
             // 
             // BtnZero
             // 
@@ -299,8 +190,10 @@
             BtnZero.Name = "BtnZero";
             BtnZero.Size = new Size(52, 41);
             BtnZero.TabIndex = 14;
+            BtnZero.Tag = "0";
             BtnZero.Text = "0";
             BtnZero.UseVisualStyleBackColor = true;
+            BtnZero.Click += SimpleBtn_Click;
             // 
             // BtnDelimiter
             // 
@@ -311,56 +204,203 @@
             BtnDelimiter.Name = "BtnDelimiter";
             BtnDelimiter.Size = new Size(52, 41);
             BtnDelimiter.TabIndex = 15;
+            BtnDelimiter.Tag = ".";
             BtnDelimiter.Text = ",";
             BtnDelimiter.UseVisualStyleBackColor = true;
+            BtnDelimiter.Click += SimpleBtn_Click;
             // 
-            // BtnSquareRoot
+            // BtnAddition
             // 
-            BtnSquareRoot.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnSquareRoot.Dock = DockStyle.Fill;
-            BtnSquareRoot.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnSquareRoot.Location = new Point(3, 3);
-            BtnSquareRoot.Name = "BtnSquareRoot";
-            BtnSquareRoot.Size = new Size(52, 40);
-            BtnSquareRoot.TabIndex = 16;
-            BtnSquareRoot.Text = "√";
-            BtnSquareRoot.UseVisualStyleBackColor = true;
+            BtnAddition.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnAddition.Dock = DockStyle.Fill;
+            BtnAddition.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnAddition.Location = new Point(177, 187);
+            BtnAddition.Name = "BtnAddition";
+            BtnAddition.Size = new Size(53, 41);
+            BtnAddition.TabIndex = 12;
+            BtnAddition.Tag = "+";
+            BtnAddition.Text = "+";
+            BtnAddition.UseVisualStyleBackColor = true;
+            BtnAddition.Click += SimpleBtn_Click;
             // 
-            // BtnOpenParenthesis
+            // BtnSubtract
             // 
-            BtnOpenParenthesis.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnOpenParenthesis.Dock = DockStyle.Fill;
-            BtnOpenParenthesis.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnOpenParenthesis.Location = new Point(61, 3);
-            BtnOpenParenthesis.Name = "BtnOpenParenthesis";
-            BtnOpenParenthesis.Size = new Size(52, 40);
-            BtnOpenParenthesis.TabIndex = 17;
-            BtnOpenParenthesis.Text = "(";
-            BtnOpenParenthesis.UseVisualStyleBackColor = true;
+            BtnSubtract.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnSubtract.Dock = DockStyle.Fill;
+            BtnSubtract.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnSubtract.Location = new Point(177, 141);
+            BtnSubtract.Name = "BtnSubtract";
+            BtnSubtract.Size = new Size(53, 40);
+            BtnSubtract.TabIndex = 11;
+            BtnSubtract.Tag = "-";
+            BtnSubtract.Text = "-";
+            BtnSubtract.UseVisualStyleBackColor = true;
+            BtnSubtract.Click += SimpleBtn_Click;
             // 
-            // BtnCloseParenthesis
+            // BtnMultiplication
             // 
-            BtnCloseParenthesis.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnCloseParenthesis.Dock = DockStyle.Fill;
-            BtnCloseParenthesis.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnCloseParenthesis.Location = new Point(119, 3);
-            BtnCloseParenthesis.Name = "BtnCloseParenthesis";
-            BtnCloseParenthesis.Size = new Size(52, 40);
-            BtnCloseParenthesis.TabIndex = 18;
-            BtnCloseParenthesis.Text = ")";
-            BtnCloseParenthesis.UseVisualStyleBackColor = true;
+            BtnMultiplication.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnMultiplication.Dock = DockStyle.Fill;
+            BtnMultiplication.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnMultiplication.Location = new Point(177, 95);
+            BtnMultiplication.Name = "BtnMultiplication";
+            BtnMultiplication.Size = new Size(53, 40);
+            BtnMultiplication.TabIndex = 10;
+            BtnMultiplication.Tag = "*";
+            BtnMultiplication.Text = "×";
+            BtnMultiplication.UseVisualStyleBackColor = true;
+            BtnMultiplication.Click += SimpleBtn_Click;
             // 
-            // BtnClear
+            // BtnDivision
             // 
-            BtnClear.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BtnClear.Dock = DockStyle.Fill;
-            BtnClear.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnClear.Location = new Point(177, 3);
-            BtnClear.Name = "BtnClear";
-            BtnClear.Size = new Size(53, 40);
-            BtnClear.TabIndex = 19;
-            BtnClear.Text = "C";
-            BtnClear.UseVisualStyleBackColor = true;
+            BtnDivision.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnDivision.Dock = DockStyle.Fill;
+            BtnDivision.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnDivision.Location = new Point(177, 49);
+            BtnDivision.Name = "BtnDivision";
+            BtnDivision.Size = new Size(53, 40);
+            BtnDivision.TabIndex = 9;
+            BtnDivision.Tag = "/";
+            BtnDivision.Text = "÷";
+            BtnDivision.UseVisualStyleBackColor = true;
+            BtnDivision.Click += SimpleBtn_Click;
+            // 
+            // BtnThree
+            // 
+            BtnThree.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnThree.Dock = DockStyle.Fill;
+            BtnThree.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnThree.Location = new Point(119, 141);
+            BtnThree.Name = "BtnThree";
+            BtnThree.Size = new Size(52, 40);
+            BtnThree.TabIndex = 8;
+            BtnThree.Tag = "3";
+            BtnThree.Text = "3";
+            BtnThree.UseVisualStyleBackColor = true;
+            BtnThree.Click += SimpleBtn_Click;
+            // 
+            // BtnTwo
+            // 
+            BtnTwo.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnTwo.Dock = DockStyle.Fill;
+            BtnTwo.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnTwo.Location = new Point(61, 141);
+            BtnTwo.Name = "BtnTwo";
+            BtnTwo.Size = new Size(52, 40);
+            BtnTwo.TabIndex = 7;
+            BtnTwo.Tag = "2";
+            BtnTwo.Text = "2";
+            BtnTwo.UseVisualStyleBackColor = true;
+            BtnTwo.Click += SimpleBtn_Click;
+            // 
+            // BtnOne
+            // 
+            BtnOne.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnOne.Dock = DockStyle.Fill;
+            BtnOne.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnOne.Location = new Point(3, 141);
+            BtnOne.Name = "BtnOne";
+            BtnOne.Size = new Size(52, 40);
+            BtnOne.TabIndex = 6;
+            BtnOne.Tag = "1";
+            BtnOne.Text = "1";
+            BtnOne.UseVisualStyleBackColor = true;
+            BtnOne.Click += SimpleBtn_Click;
+            // 
+            // BtnFour
+            // 
+            BtnFour.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnFour.Dock = DockStyle.Fill;
+            BtnFour.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnFour.Location = new Point(3, 95);
+            BtnFour.Name = "BtnFour";
+            BtnFour.Size = new Size(52, 40);
+            BtnFour.TabIndex = 3;
+            BtnFour.Tag = "4";
+            BtnFour.Text = "4";
+            BtnFour.UseVisualStyleBackColor = true;
+            BtnFour.Click += SimpleBtn_Click;
+            // 
+            // BtnFive
+            // 
+            BtnFive.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnFive.Dock = DockStyle.Fill;
+            BtnFive.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnFive.Location = new Point(61, 95);
+            BtnFive.Name = "BtnFive";
+            BtnFive.Size = new Size(52, 40);
+            BtnFive.TabIndex = 4;
+            BtnFive.Tag = "5";
+            BtnFive.Text = "5";
+            BtnFive.UseVisualStyleBackColor = true;
+            BtnFive.Click += SimpleBtn_Click;
+            // 
+            // BtnSix
+            // 
+            BtnSix.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnSix.Dock = DockStyle.Fill;
+            BtnSix.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnSix.Location = new Point(119, 95);
+            BtnSix.Name = "BtnSix";
+            BtnSix.Size = new Size(52, 40);
+            BtnSix.TabIndex = 5;
+            BtnSix.Tag = "6";
+            BtnSix.Text = "6";
+            BtnSix.UseVisualStyleBackColor = true;
+            BtnSix.Click += SimpleBtn_Click;
+            // 
+            // BtnNine
+            // 
+            BtnNine.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnNine.Dock = DockStyle.Fill;
+            BtnNine.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnNine.Location = new Point(119, 49);
+            BtnNine.Name = "BtnNine";
+            BtnNine.Size = new Size(52, 40);
+            BtnNine.TabIndex = 2;
+            BtnNine.Tag = "9";
+            BtnNine.Text = "9";
+            BtnNine.UseVisualStyleBackColor = true;
+            BtnNine.Click += SimpleBtn_Click;
+            // 
+            // BtnEight
+            // 
+            BtnEight.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnEight.Dock = DockStyle.Fill;
+            BtnEight.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnEight.Location = new Point(61, 49);
+            BtnEight.Name = "BtnEight";
+            BtnEight.Size = new Size(52, 40);
+            BtnEight.TabIndex = 1;
+            BtnEight.Tag = "8";
+            BtnEight.Text = "8";
+            BtnEight.UseVisualStyleBackColor = true;
+            BtnEight.Click += SimpleBtn_Click;
+            // 
+            // BtnSeven
+            // 
+            BtnSeven.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnSeven.Dock = DockStyle.Fill;
+            BtnSeven.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnSeven.Location = new Point(3, 49);
+            BtnSeven.Name = "BtnSeven";
+            BtnSeven.Size = new Size(52, 40);
+            BtnSeven.TabIndex = 0;
+            BtnSeven.Tag = "7";
+            BtnSeven.Text = "7";
+            BtnSeven.UseVisualStyleBackColor = true;
+            BtnSeven.Click += SimpleBtn_Click;
+            // 
+            // CalculatorDisplayField
+            // 
+            CalculatorDisplayField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            CalculatorDisplayField.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            CalculatorDisplayField.ForeColor = SystemColors.WindowText;
+            CalculatorDisplayField.Location = new Point(3, 3);
+            CalculatorDisplayField.Name = "CalculatorDisplayField";
+            CalculatorDisplayField.PlaceholderText = "0";
+            CalculatorDisplayField.Size = new Size(233, 71);
+            CalculatorDisplayField.TabIndex = 0;
             // 
             // CalculatorMainForm
             // 
