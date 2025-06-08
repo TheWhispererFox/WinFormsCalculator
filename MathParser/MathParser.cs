@@ -49,6 +49,10 @@ namespace MathParser
                 {
                     _pos++;
                     double y = ParseFactor();
+                    if (op == '/' && Math.Abs(y) <= 0.0000001)
+                    {
+                        throw new DivideByZeroException("Can not divide by zero");
+                    }
                     x = (op == '*') ? x * y : x / y;
                 }
                 else break;
